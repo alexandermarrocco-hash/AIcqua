@@ -1,0 +1,271 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0fdf4;
+    color: #1e293b;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: block;
+    margin-bottom: 2.5rem;
+}
+
+h1 {
+    color: #166534;
+    margin: 0 0 0.5rem 0;
+    font-size: 2.2rem;
+}
+
+.hero-stats-grid {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.hero-stat-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+}
+
+.hero-stat-card.primary {
+    background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+    color: white;
+    flex: 1.2;
+}
+
+.hero-stat-card.secondary {
+    background: white;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
+}
+
+.hero-stat-card h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.hero-stat-card.secondary h2 {
+    color: #64748b;
+}
+
+.water-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+.hero-stat-card.secondary .water-value {
+    color: #0284c7;
+    font-size: 2rem;
+}
+
+.unit {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.hero-stat-card.secondary .unit {
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
+
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #0f172a;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Comparazioni */
+.comparisons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.comp-item {
+    background: #f8fafc;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.comp-val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0284c7;
+    display: block;
+}
+
+.comp-label {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+/* Sorgenti */
+.source-item {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    background: #e2e8f0;
+    border-radius: 999px;
+    height: 10px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.text-bar { background-color: #3b82f6; }
+.image-bar { background-color: #ec4899; }
+
+.note {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 1rem;
+}
+
+/* Mock Chart */
+.mock-chart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 180px;
+    margin-top: 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.chart-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.chart-bar {
+    width: 40px;
+    background-color: #cbd5e1;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.5s ease;
+    margin-top: 0.5rem;
+}
+
+.chart-bar.current {
+    background: linear-gradient(180deg, #3b82f6, #0ea5e9);
+}
+
+.chart-val {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.chart-val.current-val {
+    color: #0284c7;
+}
+
+.chart-col > span:last-child {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+/* Obiettivo Reparto */
+.goal-stats {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.stat-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    flex: 1;
+    text-align: center;
+}
+
+.stat-title {
+    display: block;
+    font-size: 0.875rem;
+    color: #166534;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #15803d;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.leaderboard-position {
+    background: #fef9c3;
+    color: #854d0e;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+/* Consigli */
+.tips-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tips-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.tips-list li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+    top: 0;
+}

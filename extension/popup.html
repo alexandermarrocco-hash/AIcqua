@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4;
+            color: #1e293b;
+            margin: 0;
+            padding: 16px;
+            width: 340px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        header h1 {
+            color: #166534;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .hero-card {
+            background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+            color: white;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            margin-bottom: 16px;
+        }
+        .stat-main {
+            margin-bottom: 12px;
+        }
+        #total-water {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .unit {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .subtitle {
+            margin: 4px 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stat-icon {
+            font-size: 1.3rem;
+        }
+        .stat-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .stat-val {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+        .equivalence {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .eq-item {
+            flex: 1;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .eq-item .icon {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+        .eq-item span:nth-child(2) {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0284c7;
+        }
+        .eq-item .label {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        .progress-section {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .efficiency-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        #efficiency-status {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #334155;
+        }
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        #efficiency-fill {
+            height: 100%;
+            background: #e2e8f0;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+        .efficiency-desc {
+            margin: 8px 0 0 0;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        #open-dashboard-btn {
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background-color: #166534;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: background-color 0.2s;
+            font-family: inherit;
+        }
+        #open-dashboard-btn:hover {
+            background-color: #15803d;
+        }
+        footer {
+            text-align: center;
+            margin-top: 16px;
+        }
+        footer p {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💧 AIcqua</h1>
+            <p style="margin: 4px 0 0 0; font-size: 0.9rem; color: #475569; font-weight: 500;">Ciao Alessandro (SAP expert) 👋</p>
+        </header>
+        
+        <main>
+            <div class="hero-card">
+                <section class="stat-main">
+                    <span id="total-water">0.0</span>
+                    <span class="unit">Litri</span>
+                    <p class="subtitle">Totale Acqua Consumata</p>
+                </section>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-icon">💬</span>
+                        <div class="stat-info"><span id="session-count" class="stat-val">0</span><span class="stat-label">Interazioni</span></div>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-icon">🎯</span>
+                        <div class="stat-info">
+                            <div><span id="avg-water" class="stat-val">0</span><span style="font-size: 10px; margin-left: 2px;">mL</span></div>
+                            <span class="stat-label">Media / Msg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="equivalence">
+                <div class="eq-item">
+                    <span class="icon">🫗</span>
+                    <span id="eq-bottles">0</span>
+                    <span class="label">Bottigliette (500ml)</span>
+                </div>
+                <div class="eq-item">
+                    <span class="icon">🚿</span>
+                    <span id="eq-showers">0.0</span>
+                    <span class="label">Docce (50L)</span>
+                </div>
+            </section>
+
+            <section class="progress-section">
+                <div class="efficiency-header">
+                    <span id="efficiency-status">Efficienza: --</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="efficiency-fill"></div>
+                </div>
+                <p class="efficiency-desc">
+                    Meno acqua per prompt = interazioni più precise.
+                </p>
+            </section>
+
+            <button id="open-dashboard-btn">Apri Dashboard Estesa 📊</button>
+        </main>
+
+        <footer>
+            <p id="last-update">Mai aggiornato</p>
+        </footer>
+    </div>
+    <script src="popup.bundle.js"></script>
+</body>
+</html>

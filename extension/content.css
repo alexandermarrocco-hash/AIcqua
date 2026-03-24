@@ -1,0 +1,19 @@
+.water-footprint-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    margin: 4px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    background-color: #e0f7fa;
+    border: 1px solid #00acc1;
+    z-index: 1000;
+}
+
+.water-footprint-badge.high-consumption {
+    background-color: #ffebee;
+    border-color: #ef5350;
+    color: #c62828;
+}

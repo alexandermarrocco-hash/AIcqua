@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIcqua - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header style="display: block;">
+            <div class="header-content" style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                <div>
+                    <h1>💧 AIcqua Dashboard</h1>
+                    <p style="font-size: 1.1rem; font-weight: 600; color: #15803d; margin: 0.5rem 0;">Bentornato, Alessandro (SAP expert) 👋</p>
+                    <p style="margin-top: 0; color: #475569;">L'IA ha analizzato i tuoi pattern di utilizzo per aiutarti a ottimizzare.</p>
+                </div>
+            </div>
+            <div class="hero-stats-grid">
+                <div class="hero-stat-card primary">
+                    <h2>Consumo Totale</h2>
+                    <div class="water-value"><span id="dash-total-water">0</span> <span class="unit">L</span></div>
+                </div>
+                <div class="hero-stat-card secondary">
+                    <h2>Interazioni</h2>
+                    <div class="water-value"><span id="dash-session-count">0</span> <span class="emoji" style="font-size:1.5rem; display:inline;">💬</span></div>
+                </div>
+                <div class="hero-stat-card secondary">
+                    <h2>Media / Msg</h2>
+                    <div class="water-value"><span id="dash-avg-water">0</span> <span class="unit">mL</span></div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Andamento Temporale -->
+            <section class="card chart-section">
+                <h3>📈 Andamento Temporale (Ultime 4 Settimane)</h3>
+                <p style="color: #64748b; font-size: 0.85rem; margin-top: -5px;">Confronto dei consumi idrici stimati (Litri).</p>
+                <div class="mock-chart">
+                    <div class="chart-col">
+                        <span class="chart-val">4.2 L</span>
+                        <div class="chart-bar" style="height: 84%;" title="Settimana -3"></div>
+                        <span>3 sett. fa</span>
+                    </div>
+                    <div class="chart-col">
+                        <span class="chart-val">3.1 L</span>
+                        <div class="chart-bar" style="height: 62%;" title="Settimana -2"></div>
+                        <span>2 sett. fa</span>
+                    </div>
+                    <div class="chart-col">
+                        <span class="chart-val">5.0 L</span>
+                        <div class="chart-bar" style="height: 100%;" title="Settimana -1"></div>
+                        <span>Scorsa sett.</span>
+                    </div>
+                    <div class="chart-col">
+                        <span class="chart-val current-val" id="dash-chart-val">0 L</span>
+                        <div class="chart-bar current" id="dash-chart-current" style="height: 0%;" title="Questa Settimana"></div>
+                        <span style="font-weight: bold; color: #0284c7;">Questa sett.</span>
+                    </div>
+                </div>
+                <p class="note">*Dati storici delle settimane precedenti simulati a scopo dimostrativo.</p>
+            </section>
+
+            <!-- Comparazioni -->
+            <section class="card comparisons-section">
+                <h3>A cosa corrisponde?</h3>
+                <div class="comparisons-grid">
+                    <div class="comp-item">
+                        <span class="emoji">🫗</span>
+                        <div class="comp-text">
+                            <span id="dash-bottles" class="comp-val">0</span>
+                            <span class="comp-label">Bottigliette (500ml)</span>
+                        </div>
+                    </div>
+                    <div class="comp-item">
+                        <span class="emoji">🚿</span>
+                        <div class="comp-text">
+                            <span id="dash-showers" class="comp-val">0</span>
+                            <span class="comp-label">Docce (50L)</span>
+                        </div>
+                    </div>
+                    <div class="comp-item">
+                        <span class="emoji">🛁</span>
+                        <div class="comp-text">
+                            <span id="dash-tubs" class="comp-val">0</span>
+                            <span class="comp-label">Vasche (150L)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid-2-cols">
+                <!-- Sorgenti -->
+                <section class="card sources-section">
+                    <h3>Sorgenti di Consumo</h3>
+                    <div class="source-list">
+                        <div class="source-item">
+                            <span>Testo (ChatGPT, Claude)</span>
+                            <div class="progress-bar-container"><div class="progress-bar text-bar" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="source-item">
+                            <span>Immagini (DALL-E)</span>
+                            <div class="progress-bar-container"><div class="progress-bar image-bar" style="width: 15%;"></div></div>
+                        </div>
+                    </div>
+                    <p class="note">*Stima basata sulle sessioni registrate.</p>
+                </section>
+
+                <!-- Obiettivo di Reparto -->
+                <section class="card goal-section">
+                    <h3>🏆 Obiettivo Reparto (IT)</h3>
+                    <p>Riduci il consumo medio per interazione sotto i 0.050 L.</p>
+                    <div class="goal-stats">
+                        <div class="stat-box">
+                            <span class="stat-title">La tua media</span>
+                            <span class="stat-value" id="dash-my-avg">0.000 L/msg</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-title">Obiettivo</span>
+                            <span class="stat-value">0.050 L/msg</span>
+                        </div>
+                    </div>
+                    <div class="leaderboard-position" id="dash-leaderboard">
+                        Genera un prompt per calcolare la tua posizione... ⏳
+                    </div>
+                </section>
+            </div>
+
+            <!-- Consigli Personalizzati -->
+            <section class="card tips-section">
+                <h3>💡 Consigli per Te</h3>
+                <ul class="tips-list" id="personalized-tips">
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="dashboard.bundle.js"></script>
+</body>
+</html>
